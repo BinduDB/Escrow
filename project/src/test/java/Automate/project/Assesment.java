@@ -1,5 +1,6 @@
 package Automate.project;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -15,6 +16,7 @@ public class Assesment {
     	WebDriver driver=new ChromeDriver();
     	driver.manage().window().maximize();
     	driver.get("https://www.amazon.in/");
+    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1000));
     	
     	driver.findElement(By.id("twotabsearchtextbox")).sendKeys("wrist watches");
     	driver.findElement(By.id("nav-search-submit-button")).click();
@@ -38,7 +40,7 @@ public class Assesment {
 			
 		WebElement Add=driver.findElement(By.xpath("//span[@id=\"submit.add-to-cart\"]"));
 		Add.click();
-		Thread.sleep(1000);
+		
 		
 		driver.findElement(By.xpath("//span[@id=\"attachSiNoCoverage\"]")).click();
 		Thread.sleep(1000);
